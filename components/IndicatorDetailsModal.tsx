@@ -1,3 +1,5 @@
+
+
 /**
  * Indicator Details Modal
  * Displays calculation details for indicators including formula and source values

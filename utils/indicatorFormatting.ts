@@ -1,3 +1,5 @@
+
+
 /**
  * Indicator Formatting Utilities
  * Formats indicator names from various formats to readable sentence case

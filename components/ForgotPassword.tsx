@@ -1,3 +1,5 @@
+
+
 /**
  * Forgot Password Component - NHERAMS
  * Allows users to reset their password via email verification
@@ -33,7 +35,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBackToLogin }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/forgot-password', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/users/forgot-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
@@ -73,7 +75,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onBackToLogin }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/reset-password', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/users/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

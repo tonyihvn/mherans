@@ -1,3 +1,5 @@
+
+
 /**
  * Indicator Charts Component
  * Displays charts and visualizations for selected indicators

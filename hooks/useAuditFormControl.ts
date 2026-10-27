@@ -1,3 +1,5 @@
+
+
 /**
  * Hook to check if audit forms are globally open/closed
  * Controlled by Super Admin Console

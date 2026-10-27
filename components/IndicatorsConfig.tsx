@@ -1,3 +1,5 @@
+
+
 /**
  * Indicators Configuration Page
  * Manage emission factors and other indicator settings

@@ -1,3 +1,5 @@
+
+
 /**
  * Audit Form Wrapper - Provides required props to AuditFormRedesigned
  * Handles facilityId from URL params or user context
@@ -103,7 +105,7 @@ const AuditFormWrapper: React.FC = () => {
   useEffect(() => {
     const loadAuditPeriods = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/audit-periods', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods', {
           credentials: 'include'
         });
         if (response.ok) {
@@ -141,7 +143,7 @@ const AuditFormWrapper: React.FC = () => {
 
       const method = existingAudit ? 'PUT' : 'POST';
       const url = existingAudit 
-        ? `http://localhost:5000/api/audits/${existingAudit.id}`
+        ? `${import.meta.env.VITE_API_URL}/audits/${existingAudit.id}`
         : 'http://localhost:5000/api/audits';
 
       const response = await fetch(url, {

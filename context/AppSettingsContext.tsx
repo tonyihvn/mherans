@@ -1,3 +1,5 @@
+
+
 /**
  * App Settings Context
  * Manages application-wide settings including theme, colors, logo, and login text
@@ -64,7 +66,7 @@ export const AppSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ c
       setLoading(true);
 
       // Try to load from API first
-      const response = await fetch('http://localhost:5000/api/app-settings', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/app-settings', {
         credentials: 'include'
       });
 
@@ -198,7 +200,7 @@ export const AppSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ c
         const settingKey = settingsMap[key];
         if (settingKey && value !== undefined) {
           savePromises.push(
-            fetch(`http://localhost:5000/api/app-settings/${settingKey}`, {
+            fetch(import.meta.env.VITE_API_URL + '/app-settings/${settingKey}`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',

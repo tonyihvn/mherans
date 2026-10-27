@@ -1,3 +1,5 @@
+
+
 /**
  * Audit Period Manager
  * Allows admins to create and manage audit periods with database persistence
@@ -47,7 +49,7 @@ const AuditPeriodManager: React.FC = () => {
   const loadAuditPeriods = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/audit-periods', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods', {
         credentials: 'include'
       });
       if (response.ok) {
@@ -86,7 +88,7 @@ const AuditPeriodManager: React.FC = () => {
 
       if (editingId) {
         // Update existing period
-        const response = await fetch(`http://localhost:5000/api/audit-periods/${editingId}`, {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods/${editingId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -105,7 +107,7 @@ const AuditPeriodManager: React.FC = () => {
       } else {
         // Create new period
         const newId = `period-${Date.now()}`;
-        const response = await fetch('http://localhost:5000/api/audit-periods', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -153,7 +155,7 @@ const AuditPeriodManager: React.FC = () => {
 
     try {
       setSubmitting(true);
-      const response = await fetch(`http://localhost:5000/api/audit-periods/${id}`, {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods/${id}`, {
         method: 'DELETE',
         credentials: 'include'
       });

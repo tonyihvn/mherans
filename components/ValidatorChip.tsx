@@ -1,3 +1,5 @@
+
+
 /**
  * ValidatorChip Component - NHERAMS Prototype
  * Displays validator status: pending (neutral), signed (success), N/A (muted)

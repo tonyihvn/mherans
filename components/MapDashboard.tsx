@@ -1,3 +1,5 @@
+
+
 /**
  * Map Dashboard Component
  * Displays all facilities on a Leaflet map with markers and popups
@@ -85,7 +87,7 @@ const MapDashboard: React.FC<MapDashboardProps> = ({ onFacilitySelect, facilitie
     const loadFacilityIndicators = async () => {
       setIndicatorsLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/api/audits/facility/${selectedFacility.hfr_id}`, {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/audits/facility/${selectedFacility.hfr_id}`, {
           credentials: 'include'
         });
         if (response.ok) {

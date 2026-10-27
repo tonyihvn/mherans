@@ -1,3 +1,5 @@
+
+
 /**
  * Field Mapping Reference
  * Sync between Database (SQL), TypeScript Interface, and Indicator Configuration

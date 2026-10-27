@@ -1,3 +1,5 @@
+
+
 /**
  * Indicator Calculation Service
  * Calculates all indicators from audit form data using configurable formulas

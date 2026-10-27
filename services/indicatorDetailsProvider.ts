@@ -1,3 +1,5 @@
+
+
 /**
  * Indicator Details Provider
  * Maps indicators to their calculation details, formulas, and source values

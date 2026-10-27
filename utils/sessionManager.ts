@@ -1,3 +1,5 @@
+
+
 /**
  * Session Manager - Clear all user sessions
  */
@@ -22,7 +24,7 @@ export const clearAllSessions = () => {
   console.log('[SessionManager] Cookies cleared');
   
   // Call backend to log clear
-  fetch('http://localhost:5000/api/debug/clear-sessions', {
+  fetch(import.meta.env.VITE_API_URL + '/debug/clear-sessions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' }
   })

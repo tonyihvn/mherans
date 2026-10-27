@@ -1,3 +1,5 @@
+
+
 /**
  * Admin Indicators Configuration Page
  * Allows admins to create/edit indicator formulas
@@ -202,7 +204,7 @@ const AdminIndicatorsConfigPage: React.FC = () => {
 
   const handleSaveIndicatorConfig = async (config: any) => {
     try {
-      const response = await fetch('http://localhost:5000/api/config', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/config', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

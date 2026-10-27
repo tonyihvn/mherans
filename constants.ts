@@ -1,4 +1,6 @@
 
+
+
 import { Facility, OwnershipType, FacilityTier, ClinicalCriticality, PowerBand, ERLevel, EnergyImpactBand, EnergyProfile } from './types';
 
 export const NIGERIA_LAT_LNG: [number, number] = [9.0820, 8.6753];

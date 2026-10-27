@@ -1,3 +1,5 @@
+
+
 /**
  * Registration Component - NHERAMS
  * Handles user registration for Public Lite users
@@ -78,7 +80,7 @@ const Registration: React.FC<RegistrationProps> = ({ onRegistrationSuccess, onBa
         setTimeout(() => reject(new Error('Registration request timed out. Please try again.')), 30000)
       );
 
-      const fetchPromise = fetch('http://localhost:5000/api/users/register', {
+      const fetchPromise = fetch(import.meta.env.VITE_API_URL + '/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

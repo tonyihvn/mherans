@@ -1,3 +1,5 @@
+
+
 /**
  * Admin Indicator Config Editor Modal
  * Allows Super Admin to modify global indicator calculation factors

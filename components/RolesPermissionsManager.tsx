@@ -1,3 +1,5 @@
+
+
 /**
  * Roles and Permissions Management System
  * Allows Super Admin to configure RBAC for all app routes, pages, and components
@@ -128,7 +130,7 @@ const RolesPermissionsManager: React.FC = () => {
   const loadRolesFromDatabase = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/user-roles', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/user-roles', {
         credentials: 'include'
       });
       if (response.ok) {
@@ -177,7 +179,7 @@ const RolesPermissionsManager: React.FC = () => {
 
     setShowNotification('💾 Saving permissions...');
     try {
-      const response = await fetch(`http://localhost:5000/api/user-roles/${selectedRole.id}`, {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/user-roles/${selectedRole.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -210,7 +212,7 @@ const RolesPermissionsManager: React.FC = () => {
 
     setShowNotification('🗑️ Deleting role...');
     try {
-      const response = await fetch(`http://localhost:5000/api/user-roles/${roleId}`, {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/user-roles/${roleId}`, {
         method: 'DELETE',
         credentials: 'include'
       });
@@ -249,7 +251,7 @@ const RolesPermissionsManager: React.FC = () => {
 
     setShowNotification('✨ Creating role...');
     try {
-      const response = await fetch('http://localhost:5000/api/user-roles', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/user-roles', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

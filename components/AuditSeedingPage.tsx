@@ -1,3 +1,5 @@
+
+
 /**
  * Audit Seeding & Indicator Verification Page
  * Used for testing and verification of audit data and indicator calculations
@@ -27,8 +29,7 @@ const AuditSeedingPage: React.FC = () => {
     setSeedResult(null);
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/audits/seed/${selectedFacilityId}`,
+      const response = await fetch(import.meta.env.VITE_API_URL + '/audits/seed/${selectedFacilityId}`,
         {
           method: 'POST',
           credentials: 'include',

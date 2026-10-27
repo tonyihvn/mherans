@@ -1,3 +1,5 @@
+
+
 /**
  * Facility Dashboard Page
  * Comprehensive dashboard showing facility audit data and trends

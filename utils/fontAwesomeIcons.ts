@@ -1,3 +1,5 @@
+
+
 /**
  * Font Awesome Icons for Indicators
  * A curated list of Font Awesome 6 free icons suitable for indicators

@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables (sensitive data)
+.env
+.env.local
+.env.*.local
+.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+.Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.eclipse
+*.sublime-project
+*.sublime-workspace
+
+# Testing coverage
+coverage/
+.nyc_output/
+
+# Misc
+.cache/
+.eslintcache
+
+# Optional npm cache directory
+.npm
+
+# Local development
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Diagnostic output
+diagnostic-output.json
+test-results.json

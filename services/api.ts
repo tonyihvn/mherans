@@ -1,4 +1,16 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+
+
+const getApiBaseUrl = () => {
+  if (typeof window === 'undefined') return (import.meta.env.VITE_API_URL);
+
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return (import.meta.env.VITE_API_URL);
+  }
+  return `/api`;
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 console.log('[API Service] Initialized with base URL:', API_BASE_URL);
 

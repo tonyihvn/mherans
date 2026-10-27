@@ -1,5 +1,7 @@
 
 // NHERAMS Facility Ownership Types
+
+
 export enum OwnershipType {
   FEDERAL = 'federal',
   STATE = 'state',

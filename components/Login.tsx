@@ -1,3 +1,5 @@
+
+
 /**
  * Login Component - NHERAMS
  * Two-column layout with branding on left and login form on right
@@ -52,7 +54,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, onRegisterClick, onForgot
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -85,7 +87,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, onRegisterClick, onForgot
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/resend-verification', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/users/resend-verification', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email })

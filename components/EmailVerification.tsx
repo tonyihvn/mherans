@@ -1,3 +1,5 @@
+
+
 /**
  * Email Verification Component - NHERAMS
  * Displays after user registration, guides user to verify email
@@ -39,7 +41,7 @@ const EmailVerification: React.FC<EmailVerificationProps> = ({
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/verify-email', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/users/verify-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: verificationCode })
@@ -63,7 +65,7 @@ const EmailVerification: React.FC<EmailVerificationProps> = ({
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/resend-verification', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/users/resend-verification', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })

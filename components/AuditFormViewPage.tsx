@@ -1,3 +1,5 @@
+
+
 /**
  * Audit Form View Page - Displays completed audit as a professional report
  * Shows all data on one page without tabs or form inputs
@@ -28,7 +30,7 @@ const AuditFormViewPage: React.FC = () => {
       try {
         setLoading(true);
         if (auditId) {
-          const response = await fetch(`http://localhost:5000/api/audits/${auditId}`, {
+          const response = await fetch(import.meta.env.VITE_API_URL + '/audits/${auditId}`, {
             credentials: 'include'
           });
           if (response.ok) {
