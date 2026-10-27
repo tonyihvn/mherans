@@ -1,0 +1,7 @@
+{
+  "name": "NHERAMS Pilot Portal",
+  "description": "Nigeria Health Energy Resilience and Monitoring System (NHERAMS) - A pilot portal for monitoring energy resilience and impact across six key healthcare facilities in Nigeria.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

@@ -1,0 +1,70 @@
+
+> nherams-backend@1.0.0 start
+> node server.js
+
+🔄 Initializing database...
+✓ Database nehramsdb created or already exists
+✓ Facilities table created
+✓ Users table created
+✓ Audits table created
+✓ Audit Periods table created
+✓ Indicator Config table created
+✓ App Settings table created
+✓ Audit Form Fields table created
+✓ Audit Validations table created
+✓ User Roles table created
+✓ Energy Profiles table created
+✓ Column auditPeriodId added to audits table
+✓ Column solar_energy_generation_last_12_months_kwh added to audits table
+✓ Column section_room_name added to audits table
+✓ Column equipment_list added to audits table
+✓ Column lighting_inventory added to audits table
+✓ Column renewable_energy_potentials added to audits table
+✓ Column obvious_inefficiencies added to audits table
+✓ Column intervention_priorities added to audits table
+✓ Column historical_energy_ghg_records added to audits table
+✓ Column mrv_system_present added to audits table
+✓ Column carbon_credit_interest added to audits table
+✓ Column carbon_market_remarks added to audits table
+✓ Column nearby_facilities_shared_interventions added to audits table
+✓ Column shared_interventions_details added to audits table
+✓ Column additional_infrastructure_potential added to audits table
+
+✓ Database initialization completed successfully!
+✅ Database initialized
+🔄 Running migrations...
+Migration already applied - columns exist
+Running migration 002: Add user authentication fields...
+Migration 002 completed successfully
+✓ Datasets and dataset_facility_links tables created
+🔄 Populating audit_form_fields table...
+✅ Populated 55 audit form fields
+🔄 Seeding default roles and permissions...
+✓ Roles already exist (5 found), skipping seed
+✅ All migrations completed
+✓ Super admin account already exists
+✅ Super admin setup completed
+✅ Database already contains 6 facilities
+✅ Facilities initialization completed
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (C:\Users\Ogochukwu\Desktop\PROJECTS\REACTJS\nherams-pilot-portal\server\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Ogochukwu/Desktop/PROJECTS/REACTJS/nherams-pilot-portal/server/server.js:200:5
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000
+}
+
+Node.js v24.11.1
