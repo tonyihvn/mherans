@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Facility, User, UserRole, VerificationBundle } from '../types';
-import { NHERAMS_FACILITIES, SAMPLE_BUNDLES } from '../data';
 
 interface StateContextType {
   facilities: Facility[];
@@ -15,20 +14,9 @@ interface StateContextType {
 const StateContext = createContext<StateContextType | undefined>(undefined);
 
 export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [facilities] = useState<Facility[]>(NHERAMS_FACILITIES);
-  const [bundles] = useState<VerificationBundle[]>(SAMPLE_BUNDLES);
-  const [users] = useState<User[]>([
-    {
-      id: 'user-1',
-      role: UserRole.ADMIN,
-      name: 'FMoH Lead Admin'
-    },
-    {
-      id: 'user-2',
-      role: UserRole.GUEST,
-      name: 'Public User'
-    }
-  ]);
+  const [facilities] = useState<Facility[]>([]);
+  const [bundles] = useState<VerificationBundle[]>([]);
+  const [users] = useState<User[]>([]);
   const [loading] = useState(false);
   const [error] = useState<string | null>(null);
 

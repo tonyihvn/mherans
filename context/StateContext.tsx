@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { facilitiesService, usersService, auditsService, configService, indicatorsService } from '../services/api';
 import { Facility, User, UserRole, VerificationBundle, AuditData } from '../types';
-import { NHERAMS_FACILITIES, SAMPLE_BUNDLES } from '../data';
 
 interface Indicator {
   id: string;
@@ -56,7 +55,7 @@ const StateContext = createContext<StateContextType | undefined>(undefined);
 
 export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [facilities, setFacilities] = useState<Facility[]>([]);
-  const [bundles] = useState<VerificationBundle[]>(SAMPLE_BUNDLES);
+  const [bundles, setBundles] = useState<VerificationBundle[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [audits, setAudits] = useState<AuditData[]>([]);
   const [indicators, setIndicators] = useState<Indicator[]>([]);

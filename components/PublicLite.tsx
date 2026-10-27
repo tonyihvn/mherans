@@ -7,8 +7,15 @@
 
 import React from 'react';
 import { useAppState } from '../context/StateContext';
-import { NHERAMS_COLORS, SYNTH_DISCLAIMER, PUBLICATION_LAG_DAYS, NHERAMS_CONTROLLER, CONSUMER_TIERS } from '../data';
 import { AlertCircle, Shield, TrendingUp } from 'lucide-react';
+
+const PUBLICATION_LAG_DAYS = 30;
+const CONSUMER_TIERS = [
+  { tier: 'Facilities', role: 'facility' },
+  { tier: 'States', role: 'state' },
+  { tier: 'Financiers', role: 'financier' },
+  { tier: 'Public', role: 'public' }
+];
 
 const PublicLite: React.FC = () => {
   const { facilities } = useAppState();
@@ -62,8 +69,8 @@ const PublicLite: React.FC = () => {
         {/* Owner */}
         <div className="bg-[#057A55] text-white rounded-lg p-6 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">Controller</p>
-          <p className="font-bold text-base">{NHERAMS_CONTROLLER.ministry}</p>
-          <p className="text-xs opacity-75 mt-2">{NHERAMS_CONTROLLER.departments[0]}</p>
+          <p className="font-bold text-base">Federal Ministry of Health and Social Welfare</p>
+          <p className="text-xs opacity-75 mt-2">Department of Healthcare Facilities Management</p>
         </div>
 
         {/* Validators */}
@@ -207,7 +214,7 @@ const PublicLite: React.FC = () => {
 
       {/* Footer Disclaimer */}
       <footer className="bg-[#FEF3C7] border border-[#FCD34D] rounded-lg p-6 text-center text-sm text-[#92400E]">
-        <p className="font-semibold">{SYNTH_DISCLAIMER}</p>
+        <p className="font-semibold">Synthetic Data Demo: This portal displays banded, synthetic data for demonstration purposes only.</p>
         <p className="text-xs mt-2 opacity-75">
           This demo portal proves that NHERAMS uses one standard facility template for all facilities in Nigeria, regardless of care level,
           ownership, energy mix, or pilot status.

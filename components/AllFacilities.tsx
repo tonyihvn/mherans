@@ -8,7 +8,6 @@ import { useAppState } from '../context/StateContext';
 import FacilityCard from './FacilityCard';
 import LeafletMap from './LeafletMap';
 import { AlertCircle, Map, Grid3x3, ChevronLeft } from 'lucide-react';
-import { SYNTH_DISCLAIMER, NHERAMS_CONTROLLER } from '../data';
 
 const AllFacilities: React.FC = () => {
   const { facilities, bundles, getBundlesByFacilityId } = useAppState();
@@ -90,7 +89,7 @@ const AllFacilities: React.FC = () => {
           {/* Owner */}
           <div className="bg-[#057A55] text-white rounded-lg p-4 shadow-sm">
             <p className="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">Controller</p>
-            <p className="font-bold text-sm">{NHERAMS_CONTROLLER.ministry}</p>
+            <p className="font-bold text-sm">Federal Ministry of Health</p>
           </div>
 
           {/* Validators */}
@@ -121,7 +120,7 @@ const AllFacilities: React.FC = () => {
 
       {/* Footer - Synth Disclaimer */}
       <footer className="bg-[#FEF3C7] border border-[#FCD34D] rounded-lg p-6 text-center text-sm text-[#92400E]">
-        <p className="font-semibold">{SYNTH_DISCLAIMER}</p>
+        <p className="font-semibold">Synthetic Data Demo: All facility data shown is banded and synthetic for demonstration purposes.</p>
         <p className="text-xs mt-2 opacity-75">
           This portal demonstrates that NHERAMS uses one master facility record, indicator registry, validator model, and Verification Bundle
           structure for all facilities—regardless of level, ownership, energy mix, or geographic location.
