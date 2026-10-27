@@ -200,7 +200,7 @@ export const AppSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ c
         const settingKey = settingsMap[key];
         if (settingKey && value !== undefined) {
           savePromises.push(
-            fetch(import.meta.env.VITE_API_URL + '/app-settings/${settingKey}`, {
+            fetch(`${import.meta.env.VITE_API_URL}/app-settings/${settingKey}`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',

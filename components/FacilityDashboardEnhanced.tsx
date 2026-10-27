@@ -123,7 +123,7 @@ const FacilityDashboardEnhanced: React.FC<FacilityDashboardProps> = ({
     setIsLoading(true);
     setError('');
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL + '/audits/facility/${facilityId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/audits/facility/${facilityId}`, {
         credentials: 'include'
       });
       if (response.ok) {
@@ -160,7 +160,7 @@ const FacilityDashboardEnhanced: React.FC<FacilityDashboardProps> = ({
         alert('✓ Audit saved successfully to database');
       } else {
         // Update existing audit
-        const response = await fetch(import.meta.env.VITE_API_URL + '/audits/${auditData.id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/audits/${auditData.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',

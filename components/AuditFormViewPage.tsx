@@ -30,7 +30,7 @@ const AuditFormViewPage: React.FC = () => {
       try {
         setLoading(true);
         if (auditId) {
-          const response = await fetch(import.meta.env.VITE_API_URL + '/audits/${auditId}`, {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/audits/${auditId}`, {
             credentials: 'include'
           });
           if (response.ok) {

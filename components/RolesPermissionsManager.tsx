@@ -179,7 +179,7 @@ const RolesPermissionsManager: React.FC = () => {
 
     setShowNotification('💾 Saving permissions...');
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL + '/user-roles/${selectedRole.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user-roles/${selectedRole.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -212,7 +212,7 @@ const RolesPermissionsManager: React.FC = () => {
 
     setShowNotification('🗑️ Deleting role...');
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL + '/user-roles/${roleId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user-roles/${roleId}`, {
         method: 'DELETE',
         credentials: 'include'
       });

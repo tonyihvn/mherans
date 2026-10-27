@@ -39,7 +39,7 @@ const LeafletMap: React.FC<LeafletMapProps> = ({ onSelectFacility, center = [9.0
       for (const facility of facilities) {
         try {
           // Fetch latest audit for facility
-          const response = await fetch(import.meta.env.VITE_API_URL + '/audits/facility/${facility.hfr_id}`, {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/audits/facility/${facility.hfr_id}`, {
             credentials: 'include'
           });
           if (response.ok) {

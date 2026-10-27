@@ -292,7 +292,7 @@ const AuditListPage: React.FC<AuditListPageProps> = ({ onSelectFacility, facilit
                               <button
                                 onClick={() => {
                                   if (confirm('Delete this audit?')) {
-                                    fetch(import.meta.env.VITE_API_URL + '/audits/${audit.id}`, {
+                                    fetch(`${import.meta.env.VITE_API_URL}/audits/${audit.id}`, {
                                       method: 'DELETE',
                                       credentials: 'include'
                                     }).then(() => {

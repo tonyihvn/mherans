@@ -29,7 +29,7 @@ const AuditSeedingPage: React.FC = () => {
     setSeedResult(null);
 
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL + '/audits/seed/${selectedFacilityId}`,
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/audits/seed/${selectedFacilityId}`,
         {
           method: 'POST',
           credentials: 'include',

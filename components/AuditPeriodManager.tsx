@@ -88,7 +88,7 @@ const AuditPeriodManager: React.FC = () => {
 
       if (editingId) {
         // Update existing period
-        const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods/${editingId}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/audit-periods/${editingId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -155,7 +155,7 @@ const AuditPeriodManager: React.FC = () => {
 
     try {
       setSubmitting(true);
-      const response = await fetch(import.meta.env.VITE_API_URL + '/audit-periods/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/audit-periods/${id}`, {
         method: 'DELETE',
         credentials: 'include'
       });
