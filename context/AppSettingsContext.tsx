@@ -70,7 +70,8 @@ export const AppSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ c
         credentials: 'include'
       });
 
-      if (response.ok) {
+      const contentType = response.headers.get('content-type') || '';
+      if (response.ok && contentType.includes('application/json')) {
         const apiSettings = await response.json();
 
         // Transform API response to our format
@@ -101,6 +102,9 @@ export const AppSettingsProvider: React.FC<{ children: React.ReactNode }> = ({ c
           console.warn('Failed to cache settings in localStorage:', e);
         }
       } else {
+        if (!contentType.includes('application/json')) {
+          console.warn('[Settings] API returned non-JSON content:', response.status, response.url);
+        }
         // Fall back to localStorage
         const cached = localStorage.getItem('appSettings');
         if (cached) {

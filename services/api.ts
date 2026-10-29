@@ -12,7 +12,7 @@ const getApiBaseUrl = () => {
 
   // Production normally calls the separately registered cPanel Node application.
   // Override VITE_API_URL in .env.production when the application URL is different.
-  return configuredUrl || '/server/api';
+  return configuredUrl || '/api';
 };
 
 const API_BASE_URL = getApiBaseUrl();
