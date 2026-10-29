@@ -9,11 +9,12 @@ pnpm-lock.yaml
 .env.local
 .env.*.local
 .env.production
+!.env.production
 server/.env
 server/.env.local
 
 # Build outputs
-dist/
+# dist is intentionally tracked so production assets can be deployed via Git.
 build/
 *.tsbuildinfo
 out/
