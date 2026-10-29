@@ -25,7 +25,7 @@ import * as FacilityModel from './models/facility.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.SERVER_PORT || 5000;
+const PORT = process.env.PORT || process.env.SERVER_PORT || 5000;
 
 // Sample pilot facilities to seed if none exist
 const PILOT_FACILITIES = [
@@ -133,8 +133,19 @@ async function ensureFacilitiesExist() {
 }
 
 // Middleware
+const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+    callback(new Error(`Origin not allowed by CORS: ${origin}`));
+  },
   credentials: true
 }));
 // Increase body parser limits for large datasets
@@ -144,7 +155,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 // Request logging middleware
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
-  if (Object.keys(req.body).length > 0) {
+  if (Object.keys(req.body || {}).length > 0) {
     const bodyStr = JSON.stringify(req.body).substring(0, 300);
     console.log(`  Body: ${bodyStr}${JSON.stringify(req.body).length > 300 ? '...' : ''}`);
   }

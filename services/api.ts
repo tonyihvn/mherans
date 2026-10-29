@@ -4,10 +4,15 @@ const getApiBaseUrl = () => {
   if (typeof window === 'undefined') return (import.meta.env.VITE_API_URL);
 
   const hostname = window.location.hostname;
+  const configuredUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return (import.meta.env.VITE_API_URL);
+    return configuredUrl || '/api';
   }
-  return `/api`;
+
+  // Production normally calls the separately registered cPanel Node application.
+  // Override VITE_API_URL in .env.production when the application URL is different.
+  return configuredUrl || '/server/api';
 };
 
 const API_BASE_URL = getApiBaseUrl();
