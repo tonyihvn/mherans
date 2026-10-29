@@ -162,12 +162,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// Initialize database and run migrations
-console.log('🔄 Initializing database...');
-try {
+async function initializeDatabase() {
+  console.log('🔄 Initializing database...');
   await initDatabase();
   console.log('✅ Database initialized');
-  
+
   console.log('🔄 Running migrations...');
   await runMigration();
   await runAuthMigration();
@@ -175,15 +174,12 @@ try {
   await populateFormFieldsMigration();
   await seedDefaultRolesMigration();
   console.log('✅ All migrations completed');
-  
+
   await setupSuperAdmin();
   console.log('✅ Super admin setup completed');
 
   await ensureFacilitiesExist();
   console.log('✅ Facilities initialization completed');
-} catch (error) {
-  console.error('❌ Initialization error:', error.message);
-  process.exit(1);
 }
 
 // Routes
@@ -207,8 +203,15 @@ app.get('/api/health', (req, res) => {
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-// Start server
-app.listen(PORT, () => {
+async function startServer() {
+  try {
+    await initializeDatabase();
+  } catch (error) {
+    console.error('❌ Initialization error:', error.message);
+    throw error;
+  }
+
+  app.listen(PORT, () => {
   console.log(`\n🚀 NHERAMS Backend Server running on http://localhost:${PORT}`);
   console.log(`📊 API Documentation:`);
   console.log(`   GET  /api/facilities         - Get all facilities`);
@@ -227,4 +230,10 @@ app.listen(PORT, () => {
   console.log(`   DELETE /api/audit-periods/:id - Delete audit period`);
   console.log(`\n   GET  /api/config            - Get indicator config`);
   console.log(`   PUT  /api/config            - Update config\n`);
+  });
+}
+
+startServer().catch((error) => {
+  console.error('❌ Server startup failed:', error);
+  process.exit(1);
 });
