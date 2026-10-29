@@ -840,7 +840,7 @@ const Section3_ElectricalLoadInventory: React.FC<{
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <FormField label="Type">
                     <select
                       value={item.type}

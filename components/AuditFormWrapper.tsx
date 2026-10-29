@@ -13,6 +13,7 @@ import { useAppState } from '../context/StateContext';
 import AuditFormRedesigned from './AuditFormRedesigned';
 import AuditFormViewPage from './AuditFormViewPage';
 import { AuditData } from '../services/auditSchema';
+import { getApiBaseUrl } from '../utils/apiUrl';
 
 interface AuditPeriod {
   id: string;
@@ -142,9 +143,10 @@ const AuditFormWrapper: React.FC = () => {
       };
 
       const method = existingAudit ? 'PUT' : 'POST';
-      const url = existingAudit 
-        ? `${import.meta.env.VITE_API_URL}/audits/${existingAudit.id}`
-        : 'http://localhost:5000/api/audits';
+      const apiBaseUrl = getApiBaseUrl();
+      const url = existingAudit
+        ? `${apiBaseUrl}/audits/${existingAudit.id}`
+        : `${apiBaseUrl}/audits`;
 
       const response = await fetch(url, {
         method,
